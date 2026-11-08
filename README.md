@@ -1,0 +1,22 @@
+# WordPress Toolbox
+
+**Small, focused WordPress plugins, one new one each week.**
+
+Each folder here is a complete plugin you can zip and upload. They follow the same rules as my other plugins: they work the moment they're activated, keep settings to a minimum and look at home in wp-admin.
+
+## Plugins
+
+| Plugin | What it does | Added |
+| --- | --- | --- |
+
+New plugins are added to the top of this table.
+
+## Install a plugin
+
+1. Download this repository as a ZIP and unzip it.
+2. Zip the folder of the plugin you want, for example `plugin-name/`.
+3. Upload it in **Plugins → Add New → Upload Plugin** and activate it.
+
+## License
+
+GPL-2.0-or-later. Built by [Rohan Salave](https://www.linkedin.com/in/rohan-salave-362475189/).
