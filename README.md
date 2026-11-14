@@ -8,6 +8,7 @@ Each folder here is a complete plugin you can zip and upload. They follow the sa
 
 | Plugin | What it does | Added |
 | --- | --- | --- |
+| [**Notice Tray**](notice-tray/) | Moves plugin and theme notices off the top of every admin screen into a tray in the admin bar, with a count. Errors stay visible. | 2026-11-14 |
 
 New plugins are added to the top of this table.
 
