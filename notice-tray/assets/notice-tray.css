@@ -1,0 +1,255 @@
+/* Notice Tray. Follows the admin colour scheme's accent where WordPress provides it. */
+
+/* Admin bar button */
+#wpadminbar #wp-admin-bar-notice-tray .ab-icon::before {
+	content: "\f16d"; /* dashicons-bell */
+	top: 2px;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray .ab-label {
+	margin-left: 2px;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray .notice-tray-count {
+	display: inline-block;
+	box-sizing: border-box;
+	min-width: 18px;
+	height: 18px;
+	margin: 0 0 0 6px;
+	padding: 0 5px;
+	border-radius: 9px;
+	background: var(--wp-admin-theme-color, #2271b1);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 18px;
+	text-align: center;
+	vertical-align: 1px;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray.has-warning .notice-tray-count {
+	background: #dba617;
+	color: #1d2327;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray.is-empty .notice-tray-count {
+	display: none;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray.is-empty .ab-icon::before {
+	opacity: 0.6;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray.is-open > .ab-item {
+	background: #2c3338;
+	color: #72aee6;
+}
+
+#wpadminbar #wp-admin-bar-notice-tray.notice-tray-paused .ab-icon::before {
+	content: "\f16d";
+	opacity: 0.5;
+}
+
+/* Panel */
+.notice-tray-panel {
+	--nt-bg: #fff;
+	--nt-text: #1e1e1e;
+	--nt-muted: #646970;
+	--nt-line: #e5e5e7;
+	position: fixed;
+	top: 40px;
+	right: 12px;
+	z-index: 100000;
+	display: flex;
+	flex-direction: column;
+	width: 440px;
+	max-width: calc(100vw - 24px);
+	max-height: calc(100vh - 64px);
+	background: var(--nt-bg);
+	color: var(--nt-text);
+	border-radius: 12px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 20px 48px -12px rgba(16, 18, 24, 0.32), 0 6px 16px -6px rgba(16, 18, 24, 0.18);
+	overflow: hidden;
+	animation: notice-tray-in 0.14s ease-out;
+}
+
+.notice-tray-panel[hidden] {
+	display: none;
+}
+
+@keyframes notice-tray-in {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.notice-tray-panel {
+		animation: none;
+	}
+}
+
+.notice-tray-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 12px 12px 16px;
+	border-bottom: 1px solid var(--nt-line);
+}
+
+.notice-tray-panel .notice-tray-title {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.notice-tray-summary {
+	color: var(--nt-muted);
+	font-size: 12px;
+}
+
+.notice-tray-close {
+	margin-left: auto;
+	padding: 4px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--nt-muted);
+	cursor: pointer;
+	line-height: 1;
+}
+
+.notice-tray-close:hover {
+	background: #f0f0f1;
+	color: var(--nt-text);
+}
+
+.notice-tray-close:focus-visible,
+.notice-tray-pause:focus-visible,
+.notice-tray-list:focus-visible {
+	outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+	outline-offset: 1px;
+}
+
+.notice-tray-list {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	padding: 12px;
+	overscroll-behavior: contain;
+}
+
+.notice-tray-list[hidden] {
+	display: none;
+}
+
+/* Notices keep their own markup; just make them sit nicely in a list. */
+.notice-tray-list > .notice-tray-item,
+.notice-tray-list > .notice-tray-item.update-nag {
+	display: block;
+	box-sizing: border-box;
+	width: auto;
+	margin: 0 0 8px;
+	border-radius: 0 6px 6px 0;
+	box-shadow: none;
+	background: #f6f7f7;
+}
+
+.notice-tray-list > .notice-tray-item:last-child {
+	margin-bottom: 0;
+}
+
+.notice-tray-list > .update-nag {
+	padding: 8px 12px;
+	border-left: 4px solid #dba617;
+	font-size: 13px;
+}
+
+.notice-tray-list > .notice-tray-item img {
+	max-width: 100%;
+	height: auto;
+}
+
+.notice-tray-empty {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 28px 16px;
+	color: var(--nt-muted);
+	font-size: 13px;
+}
+
+.notice-tray-empty[hidden] {
+	display: none;
+}
+
+.notice-tray-empty .dashicons {
+	color: #00a32a;
+}
+
+.notice-tray-footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 4px 12px;
+	padding: 10px 16px;
+	border-top: 1px solid var(--nt-line);
+	background: #fbfbfc;
+	font-size: 12px;
+}
+
+.notice-tray-hint {
+	margin: 0;
+	color: var(--nt-muted);
+	font-size: 12px;
+}
+
+.notice-tray-pause {
+	font-size: 12px;
+}
+
+/* Keep the button on phones, where WordPress hides most admin bar items. */
+@media screen and (max-width: 782px) {
+	#wpadminbar #wp-admin-bar-notice-tray {
+		display: block;
+	}
+
+	#wpadminbar #wp-admin-bar-notice-tray > .ab-item {
+		width: auto;
+		padding: 0 10px;
+	}
+
+	#wpadminbar #wp-admin-bar-notice-tray .ab-icon::before {
+		font-size: 26px;
+		top: 4px;
+	}
+
+	#wpadminbar #wp-admin-bar-notice-tray .ab-label {
+		display: none;
+	}
+
+	#wpadminbar #wp-admin-bar-notice-tray .notice-tray-count {
+		vertical-align: 12px;
+		margin-left: -8px;
+	}
+
+	.notice-tray-panel {
+		top: 54px;
+		right: 8px;
+		max-width: calc(100vw - 16px);
+	}
+}
+
+@media (forced-colors: active) {
+	.notice-tray-panel {
+		border: 1px solid CanvasText;
+	}
+
+	#wpadminbar #wp-admin-bar-notice-tray .notice-tray-count {
+		border: 1px solid CanvasText;
+	}
+}
