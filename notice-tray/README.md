@@ -51,7 +51,7 @@ If your script adds notices to the tray after the page loads, trigger `jQuery( d
 | `notice_tray_enabled` | filter | Whether the tray runs on the current screen (`$enabled`, `$screen`) |
 | `notice-tray:refresh` | jQuery event | Recount the notices in the tray |
 
-The pause choice is stored per user in the `notice_tray_paused` user meta. Switching it goes through `admin-post.php` with a nonce, and the return address is checked with `wp_validate_redirect()`.
+The pause choice is stored per user in the `notice_tray_paused` user meta, and `uninstall.php` removes it when the plugin is deleted. Switching it goes through `admin-post.php` with a nonce, and the return address is checked with `wp_validate_redirect()`.
 
 ## Install
 
@@ -65,6 +65,7 @@ Requires WordPress 6.3+ and PHP 7.4+. No build step. It's plain PHP, CSS and Jav
 
 ```
 notice-tray.php           Admin bar button, per-user pause, script settings
+uninstall.php             Removes the saved pause choice when the plugin is deleted
 assets/notice-tray.js     Collects notices into the tray and keeps the count up to date
 assets/notice-tray.css    Tray and badge styles
 ```
