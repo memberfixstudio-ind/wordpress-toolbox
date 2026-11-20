@@ -18,6 +18,10 @@ New plugins are added to the top of this table.
 2. Zip the folder of the plugin you want, for example `plugin-name/`.
 3. Upload it in **Plugins → Add New → Upload Plugin** and activate it.
 
+## Checks
+
+A GitHub Actions workflow lints every PHP file on PHP 7.4, 8.1 and 8.3 and syntax-checks every JavaScript file, so a plugin that declares PHP 7.4 support can't quietly use newer syntax.
+
 ## License
 
 GPL-2.0-or-later. Built by [Rohan Salave](https://www.linkedin.com/in/rohan-salave-362475189/).
