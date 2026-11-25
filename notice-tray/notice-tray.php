@@ -83,7 +83,7 @@ function notice_tray_toggle_url( $pause ) {
 		array(
 			'action'   => 'notice_tray_toggle',
 			'pause'    => $pause ? '1' : '0',
-			'redirect' => rawurlencode( $back ),
+			'redirect' => $back,
 			'_wpnonce' => wp_create_nonce( 'notice_tray_toggle' ),
 		),
 		admin_url( 'admin-post.php' )
