@@ -23,7 +23,11 @@
 		if ( button.hasAttribute( 'data-sw-others' ) ) {
 			message = strings.confirmOthers || '';
 		} else if ( button.getAttribute( 'data-sw-name' ) ) {
-			message = ( strings.confirmUser || '' ).replace( '%s', button.getAttribute( 'data-sw-name' ) );
+			var name = button.getAttribute( 'data-sw-name' );
+			// A function keeps "$&" and similar in a display name from being read as a pattern.
+			message = ( strings.confirmUser || '' ).replace( '%s', function () {
+				return name;
+			} );
 		}
 
 		if ( message && ! window.confirm( message ) ) {
@@ -38,5 +42,20 @@
 		}
 		form.setAttribute( 'data-sw-sent', '1' );
 		button.setAttribute( 'aria-disabled', 'true' );
+	} );
+
+	// Coming back with the Back button can restore the page from the browser's
+	// cache with every button still locked, so unlock them again.
+	window.addEventListener( 'pageshow', function ( event ) {
+		if ( ! event.persisted ) {
+			return;
+		}
+		Array.prototype.forEach.call( document.querySelectorAll( 'form.sw-action[data-sw-sent]' ), function ( form ) {
+			form.removeAttribute( 'data-sw-sent' );
+			var button = form.querySelector( 'button' );
+			if ( button ) {
+				button.removeAttribute( 'aria-disabled' );
+			}
+		} );
 	} );
 }() );
