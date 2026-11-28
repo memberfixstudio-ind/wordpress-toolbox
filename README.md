@@ -8,6 +8,7 @@ Each folder here is a complete plugin you can zip and upload. They follow the sa
 
 | Plugin | What it does | Added |
 | --- | --- | --- |
+| [**Members Only**](members-only/) | A block that shows the blocks inside it only to signed-in or signed-out visitors, chosen roles, MemberPress members or LearnDash students. Everyone else sees a short Log in message, or nothing. | 2026-11-28 |
 | [**Session Watch**](session-watch/) | Adds **Users → Signed in**: every active session with its device, IP address and login time. Flags accounts signed in from several IP addresses and signs out one device, one person or everyone else. | 2026-11-21 |
 | [**Notice Tray**](notice-tray/) | Moves plugin and theme notices off the top of every admin screen into a tray in the admin bar, with a count. Errors stay visible. | 2026-11-14 |
 
