@@ -1,0 +1,91 @@
+/* Members Only. Inherits the theme's font and colors; set --mo-accent to match your brand. */
+
+.members-only-prompt {
+	--mo-accent: #4f46e5;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: start;
+	column-gap: 14px;
+	row-gap: 10px;
+	padding: 20px 22px;
+	border: 1px solid #e3e4ea;
+	border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+	border-radius: 14px;
+	background: #f5f5fe;
+	background: color-mix(in srgb, var(--mo-accent) 6%, transparent);
+	line-height: 1.5;
+}
+
+.members-only-prompt__icon {
+	flex: none;
+	margin-top: 1px;
+	color: var(--mo-accent);
+}
+
+.members-only-prompt__text,
+.members-only-prompt__actions {
+	margin: 0;
+}
+
+.members-only-prompt__actions {
+	grid-column: 2;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 16px;
+}
+
+.members-only-prompt__button {
+	display: inline-block;
+	padding: 8px 18px;
+	border-radius: 999px;
+	background: var(--mo-accent);
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.members-only-prompt__button:hover,
+.members-only-prompt__button:focus {
+	color: #fff;
+	background: #4338ca;
+	background: color-mix(in srgb, var(--mo-accent) 85%, #000);
+}
+
+.members-only-prompt__link {
+	color: inherit;
+}
+
+.members-only-prompt a:focus-visible {
+	outline: 2px solid var(--mo-accent);
+	outline-offset: 2px;
+}
+
+/* What people who can edit the page see on the front end. */
+.members-only-preview {
+	padding: 12px;
+	border: 2px dashed #c4b5fd;
+	border-radius: 12px;
+}
+
+.members-only-preview__badge {
+	display: inline-block;
+	margin: 0 0 12px;
+	padding: 3px 10px;
+	border-radius: 6px;
+	background: #ede9fe;
+	color: #4c1d95;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+@media (max-width: 360px) {
+	.members-only-prompt {
+		grid-template-columns: 1fr;
+	}
+
+	.members-only-prompt__actions {
+		grid-column: 1;
+	}
+}
