@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "members-only/section",
+	"version": "1.0.0",
+	"title": "Members Only",
+	"category": "design",
+	"icon": "lock",
+	"description": "Show the blocks inside only to signed-in visitors, signed-out visitors, chosen roles, MemberPress members or LearnDash students. Everyone else sees a short sign-in prompt, or nothing.",
+	"keywords": [ "logged in", "restrict", "members", "private", "memberpress", "learndash", "visibility" ],
+	"textdomain": "members-only",
+	"attributes": {
+		"audience": {
+			"type": "string",
+			"enum": [ "members", "guests", "roles", "memberships", "courses" ],
+			"default": "members"
+		},
+		"roles": { "type": "array", "items": { "type": "string" }, "default": [] },
+		"memberships": { "type": "array", "items": { "type": "integer" }, "default": [] },
+		"courses": { "type": "array", "items": { "type": "integer" }, "default": [] },
+		"showPrompt": { "type": "boolean", "default": true },
+		"promptText": { "type": "string", "default": "" }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true, "padding": true }
+	},
+	"editorScript": "members-only-editor",
+	"editorStyle": "members-only-editor",
+	"style": "members-only"
+}
